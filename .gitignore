@@ -1,11 +1,12 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
+/angular-spring/target/
+/angular-spring/pom.xml.tag
+/angular-spring/pom.xml.releaseBackup
+/angular-spring/pom.xml.versionsBackup
+/angular-spring/pom.xml.next
+/angular-spring/release.properties
+/angular-spring/dependency-reduced-pom.xml
+/angular-spring/buildNumber.properties
+/angular-spring/mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+/clientes-app/node_modules/

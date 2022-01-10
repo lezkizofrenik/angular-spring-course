@@ -1,0 +1,52 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+    <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{titulo}}</h5>
+                    <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <ul *ngIf="cliente" class="list-group text-dark mb-3">
+                                <li class="list-group-item">{{cliente.nombre}}</li>
+                                <li class="list-group-item">{{cliente.apellido}}</li>
+                                <li class="list-group-item">{{cliente.email}}</li>
+                                <li class="list-group-item">{{cliente.createAt | date:"fullDate"}}</li>
+                                <li class="list-group-item">{{cliente.region.nombre}}</li>
+
+                            </ul>
+
+                            <div class="input-group">
+                                <input (change)="seleccionarFoto($event)" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Seleccionar foto">
+                                <button (click)="subirFoto()" [disabled]="!fotoSeleccionada" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir
+                                    foto</button>
+                            </div>
+
+                            <div class="progress" *ngIf="progreso > 0">
+                                <!-- estilo dinamico para agrandar la barra a medida que cambia el progreso-->
+                                <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width: progreso + '%'}" attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
+                                    {{progreso}}%
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm">
+                            <!-- que exista y que contega foto -->
+                            <img *ngIf="cliente?.foto" src="http://localhost:8080/api/uploads/img/{{cliente.foto}}" alt="{{cliente.foto}}" class="img-thumbnail rounded">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
